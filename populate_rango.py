@@ -53,14 +53,14 @@ def populate():
         for p in Page.objects.filter(category=c):
             print(f'- {c}: {p}')
 
-def add_page(cat, title, url, views=0):
+def add_page(cat, title, url, views=1):
     p = Page.objects.get_or_create(category=cat, title=title)[0]
     p.url=url
     p.views=views
     p.save()
     return p
 
-def add_cat(name,views=0,likes=0):
+def add_cat(name,views=1,likes=1):
     c = Category.objects.get_or_create(name=name)[0]
     c.views=views
     c.likes=likes
